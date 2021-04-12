@@ -1,19 +1,20 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import { updateLifeState } from './life';
 
 function App() {
+  const lifeState = updateLifeState({
+    1: {
+      1: true,
+      2: true,
+      3: true,
+    },
+  });
+  console.log(lifeState);
+
   return (
     <div className="App">
-      <header className="App-header">
-        sdfsdf
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Button>ad</Button>
     </div>
   );
 }
