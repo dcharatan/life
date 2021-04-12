@@ -6,7 +6,7 @@
 export const createLifeState = () => 42;
 
 // Read a single cell's state.
-const getCell = (lifeState, row, col) => (lifeState[row] ? lifeState[row][col] : undefined);
+export const getCell = (lifeState, row, col) => (lifeState[row] ? lifeState[row][col] : undefined);
 
 // Mark a cell as being alive.
 const markAlive = (lifeState, row, col) => {
@@ -22,11 +22,13 @@ const countNeighbors = (lifeState, row, col) => {
   const deadNeighbors = [];
   for (let rowOffset = -1; rowOffset <= 1; rowOffset += 1) {
     for (let colOffset = -1; colOffset <= 1; colOffset += 1) {
-      const cell = getCell(lifeState, row + rowOffset, col + colOffset);
-      if (cell !== undefined) {
-        aliveNeighbors.push(cell);
-      } else {
-        deadNeighbors.push([row, col]);
+      if (rowOffset !== 0 || colOffset !== 0) {
+        const cell = getCell(lifeState, row + rowOffset, col + colOffset);
+        if (cell !== undefined) {
+          aliveNeighbors.push(cell);
+        } else {
+          deadNeighbors.push([row + rowOffset, col + colOffset]);
+        }
       }
     }
   }
@@ -34,7 +36,7 @@ const countNeighbors = (lifeState, row, col) => {
 };
 
 // Run one iteration of Conway's Game of Life.
-export const updateLifeState = (oldState) => {
+export const getNextLifeState = (oldState) => {
   const newState = {};
 
   // Iterate through living cells.

@@ -1,21 +1,19 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import { updateLifeState } from './life';
+import LifeGame from './visualization/LifeGame';
 
 function App() {
-  const lifeState = updateLifeState({
-    1: {
-      1: true,
-      2: true,
-      3: true,
-    },
-  });
-  console.log(lifeState);
-
   return (
-    <div className="App">
-      <Button>ad</Button>
-    </div>
+    <LifeGame
+      initialState={{
+        2: {
+          1: true,
+          2: true,
+          3: true,
+        },
+      }}
+      numRows={5}
+      numCols={5}
+    />
   );
 }
 
