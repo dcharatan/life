@@ -1,30 +1,37 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getCell, getNextLifeState } from '../life';
+import { getCell, getNextLifeState } from '../life/life';
 import Cell from './Cell';
+import { getDonutFrame } from '../donut';
 
 const LifeGame = ({
   initialState, updateInterval, numRows, numCols,
 }) => {
   const [state, setState] = useState(initialState);
+  const [donutState, setDonutState] = useState([0, 0]);
 
+  // Game of Life
   useEffect(() => {
-    const interval = setInterval(() => {
+    const donutInterval = setInterval(() => {
+      setDonutState([donutState[0] + 0.03, donutState[1] + 0.07]);
       setState(getNextLifeState(state));
-    }, updateInterval);
-    return () => clearInterval(interval);
-  }, [state]);
+    }, 1000 / 30);
+    return () => {
+      clearInterval(donutInterval);
+    };
+  }, [state, donutState]);
+
+  const text = getDonutFrame(donutState[0], donutState[1]);
 
   const rows = [];
   for (let row = 0; row < numRows; row += 1) {
     const rowCells = [];
-    const rowStates = [];
     for (let col = 0; col < numCols; col += 1) {
       const alive = !!getCell(state, row, col);
-      rowCells.push(<Cell letter="X" alive={alive} />);
-      rowStates.push(alive ? 'A' : 'D');
+      rowCells.push(<Cell key={col} letter={text[row] ? text[row][col] ?? '_' : '_'} alive={alive} />);
     }
-    rows.push(<div className="d-flex flex-row" key={`${row}${rowStates.join('')}`}>{rowCells}</div>);
+    rows.push(<div className="d-flex flex-row" key={row}>{rowCells}</div>);
   }
 
   return <div>{rows}</div>;

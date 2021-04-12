@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 
 const LifeGame = ({ alive, letter }) => {
   const classes = ['text-monospace'];
-  if (alive) {
-    classes.push('bg-primary');
-  }
-  return <div className={classes.join(' ')}>{letter}</div>;
+  return <div className={classes.join(' ')}>{alive ? '*' : letter}</div>;
 };
 
 LifeGame.propTypes = {
