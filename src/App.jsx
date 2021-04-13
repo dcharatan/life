@@ -15,6 +15,13 @@ function App() {
           numRows={43}
           numCols={79}
         />
+        <div className="font-weight-bold">Unknown AI</div>
+        <div className="mb-2">American, 2031 —</div>
+        <div>
+          <span className="font-weight-bold font-italic">Untitled Game/Life</span>
+          , 2033
+        </div>
+        <div>Serial Interface on PDP-11</div>
       </div>
     </div>
   );
