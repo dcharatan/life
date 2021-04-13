@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { copyState, updateLifeState } from './life/life';
 import { getDonutFrame } from './donut';
+import { getSineWaveFrame } from './sineWave';
 
 const LifeGame = ({
   initialState, updateInterval, numRows, numCols,
@@ -22,13 +23,22 @@ const LifeGame = ({
   }, [lifeState, donutState]);
 
   const donutText = getDonutFrame(donutState[0], donutState[1]);
+  const sineWaveText = getSineWaveFrame(donutState[0], numRows, numCols);
 
   let text = '';
   for (let row = 0; row < numRows; row += 1) {
     for (let col = 0; col < numCols; col += 1) {
       const alive = lifeState[row] ? lifeState[row][col] ?? false : false;
-      const letter = donutText[row] ? donutText[row][col] ?? '_' : '_';
-      const actual = letter === '_' && alive ? '0' : letter;
+      const donutLetter = donutText[row] ? donutText[row][col] ?? ' ' : ' ';
+      const sineLetter = sineWaveText[row] ? sineWaveText[row][col] ?? ' ' : ' ';
+      let actual = ' ';
+      if (donutLetter !== ' ') {
+        actual = donutLetter;
+      } else if (alive) {
+        actual = '0';
+      } else if (sineLetter !== ' ') {
+        actual = sineLetter;
+      }
       text += actual;
     }
     text += '\n';
@@ -36,7 +46,7 @@ const LifeGame = ({
 
   return (
     <div className="text-monospace" style={{ fontSize: '1%', lineHeight: '120%' }}>
-      {text.split('\n').map((item, key) => (
+      {text.replace(/ /g, '_').split('\n').map((item, key) => (
         // eslint-disable-next-line react/no-array-index-key
         <span key={key}>
           {item}

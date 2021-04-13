@@ -10,7 +10,7 @@ export const getDonutFrame = (A, B) => {
   const cB = Math.cos(B); const
     sB = Math.sin(B);
   for (let k = 0; k < 1760; k += 1) {
-    b[k] = k % 80 === 79 ? '\n' : '_';
+    b[k] = k % 80 === 79 ? '\n' : ' ';
     z[k] = 0;
   }
   for (let j = 0; j < 6.28; j += 0.07) { // j <=> theta
