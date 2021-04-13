@@ -1,40 +1,50 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { getCell, getNextLifeState } from '../life/life';
-import Cell from './Cell';
+import { copyState, updateLifeState } from '../life/life';
 import { getDonutFrame } from '../donut';
 
 const LifeGame = ({
   initialState, updateInterval, numRows, numCols,
 }) => {
-  const [state, setState] = useState(initialState);
+  const [lifeState, setLifeState] = useState(initialState);
+  const scratch = useRef(copyState(initialState));
   const [donutState, setDonutState] = useState([0, 0]);
 
-  // Game of Life
   useEffect(() => {
     const donutInterval = setInterval(() => {
       setDonutState([donutState[0] + 0.03, donutState[1] + 0.07]);
-      setState(getNextLifeState(state));
-    }, 1000 / 30);
+      setLifeState(updateLifeState(lifeState, scratch.current));
+    }, updateInterval);
     return () => {
       clearInterval(donutInterval);
     };
-  }, [state, donutState]);
+  }, [lifeState, donutState]);
 
-  const text = getDonutFrame(donutState[0], donutState[1]);
+  const donutText = getDonutFrame(donutState[0], donutState[1]);
 
-  const rows = [];
+  let text = '';
   for (let row = 0; row < numRows; row += 1) {
-    const rowCells = [];
     for (let col = 0; col < numCols; col += 1) {
-      const alive = !!getCell(state, row, col);
-      rowCells.push(<Cell key={col} letter={text[row] ? text[row][col] ?? '_' : '_'} alive={alive} />);
+      const alive = lifeState[row] ? lifeState[row][col] ?? false : false;
+      const letter = donutText[row] ? donutText[row][col] ?? '_' : '_';
+      const actual = letter === '_' && alive ? '0' : letter;
+      text += actual;
     }
-    rows.push(<div className="d-flex flex-row" key={row}>{rowCells}</div>);
+    text += '\n';
   }
 
-  return <div>{rows}</div>;
+  return (
+    <div className="text-monospace" style={{ fontSize: '1%', lineHeight: '120%' }}>
+      {text.split('\n').map((item, key) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <span key={key}>
+          {item}
+          <br />
+        </span>
+      ))}
+    </div>
+  );
 };
 
 LifeGame.propTypes = {

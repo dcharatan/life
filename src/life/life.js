@@ -1,21 +1,12 @@
 /* eslint-disable no-param-reassign */
 
-// A life state is a JS object with the following format:
-// row -> col -> cell data
-
-// Mark a cell as being alive.
-const markAlive = (lifeState, row, col) => {
-  if (lifeState[row] === undefined) {
-    lifeState[row] = {};
-  }
-  lifeState[row][col] = true;
-};
-
 export const createLifeState = (rle) => {
   // Find the part of the text that contains the cells.
   const lines = rle.split('\n');
   let lookingForDimensions = true;
   const remainingLines = [];
+  let rows;
+  let cols;
   lines.forEach((line) => {
     if (lookingForDimensions) {
       // Skip comment lines.
@@ -23,6 +14,9 @@ export const createLifeState = (rle) => {
         return;
       }
       lookingForDimensions = false;
+      const parts = line.split(',');
+      cols = parseInt(parts[0].split('=')[1], 10);
+      rows = parseInt(parts[1].split('=')[1], 10);
     } else {
       remainingLines.push(line);
     }
@@ -30,7 +24,13 @@ export const createLifeState = (rle) => {
   const cellText = remainingLines.join('').split('!')[0];
 
   // Construct the state from the cell text.
-  const state = {};
+  const state = [];
+  for (let row = 0; row < rows; row += 1) {
+    state.push([]);
+    for (let col = 0; col < cols; col += 1) {
+      state[row].push(false);
+    }
+  }
   let row = 0;
   let col = 0;
   let start = 0;
@@ -43,7 +43,7 @@ export const createLifeState = (rle) => {
       const number = start === i ? 1 : parseInt(cellText.slice(start, i), 10);
       if (cellText[i] === 'o') {
         for (let j = col; j < col + number; j += 1) {
-          markAlive(state, row, j);
+          state[row][j] = true;
         }
       }
       start = i + 1;
@@ -54,57 +54,61 @@ export const createLifeState = (rle) => {
   return state;
 };
 
-// Read a single cell's state.
-export const getCell = (lifeState, row, col) => (lifeState[row] ? lifeState[row][col] : undefined);
-
-// Count the alive and dead neighbors for the given state, row, and column.
-const countNeighbors = (lifeState, row, col) => {
-  const aliveNeighbors = [];
-  const deadNeighbors = [];
-  for (let rowOffset = -1; rowOffset <= 1; rowOffset += 1) {
-    for (let colOffset = -1; colOffset <= 1; colOffset += 1) {
-      if (rowOffset !== 0 || colOffset !== 0) {
-        const cell = getCell(lifeState, row + rowOffset, col + colOffset);
-        if (cell !== undefined) {
-          aliveNeighbors.push(cell);
-        } else {
-          deadNeighbors.push([row + rowOffset, col + colOffset]);
-        }
+// Count the alive neighbors for the given state, row, and column.
+const countAlive = (lifeState, startRow, startCol) => {
+  let numAliveNeighbors = 0;
+  const rowStart = Math.max(0, startRow - 1);
+  const rowEnd = Math.min(lifeState.length, startRow + 2);
+  const colStart = Math.max(0, startCol - 1);
+  const colEnd = Math.min(lifeState[0].length, startCol + 2);
+  for (let row = rowStart; row < rowEnd; row += 1) {
+    for (let col = colStart; col < colEnd; col += 1) {
+      if (lifeState[row][col] && (row !== startRow || col !== startCol)) {
+        numAliveNeighbors += 1;
       }
     }
   }
-  return { aliveNeighbors, deadNeighbors };
+  return numAliveNeighbors;
+};
+
+export const copyState = (state) => {
+  const newState = [];
+  for (let row = 0; row < state.length; row += 1) {
+    newState.push([]);
+    for (let col = 0; col < state[0].length; col += 1) {
+      newState[row].push(state[row][col]);
+    }
+  }
+  return newState;
+};
+
+export const padState = (state, padding) => {
+  const newState = [];
+  for (let row = 0; row < state.length + 2 * padding; row += 1) {
+    newState.push([]);
+    for (let col = 0; col < state[0].length + 2 * padding; col += 1) {
+      if (row >= padding && row < state.length + padding && col >= padding && col < state[0].length + padding) {
+        newState[row].push(state[row - padding][col - padding]);
+      } else {
+        newState[row].push(false);
+      }
+    }
+  }
+  return newState;
 };
 
 // Run one iteration of Conway's Game of Life.
-export const getNextLifeState = (oldState) => {
-  const newState = {};
-
-  // Iterate through living cells.
-  Object.entries(oldState).forEach(([rowIndex, row]) => {
-    Object.entries(row).forEach(([colIndex]) => {
-      const rowIndexInt = parseInt(rowIndex, 10);
-      const colIndexInt = parseInt(colIndex, 10);
-
-      // Count alive and dead neighbors.
-      const { aliveNeighbors, deadNeighbors } = countNeighbors(oldState, rowIndexInt, colIndexInt);
-
-      // Check if this cell should remain alive.
-      if (aliveNeighbors.length === 2 || aliveNeighbors.length === 3) {
-        markAlive(newState, rowIndexInt, colIndexInt);
-      }
-
-      // Check if neighboring dead cells should be born.
-      deadNeighbors.forEach(([neighborRowIndex, neighborColIndex]) => {
-        const neighborRowIndexInt = parseInt(neighborRowIndex, 10);
-        const neighborColIndexInt = parseInt(neighborColIndex, 10);
-        const { aliveNeighbors: neighborAliveNeighbors } = countNeighbors(oldState, neighborRowIndexInt, neighborColIndexInt);
-        if (neighborAliveNeighbors.length === 3) {
-          markAlive(newState, neighborRowIndexInt, neighborColIndexInt);
-        }
-      });
-    });
-  });
-
-  return newState;
+export const updateLifeState = (state, scratch) => {
+  for (let row = 0; row < state.length; row += 1) {
+    for (let col = 0; col < state[0].length; col += 1) {
+      const numAlive = countAlive(state, row, col);
+      scratch[row][col] = (numAlive === 3 || (numAlive === 2 && state[row][col]));
+    }
+  }
+  for (let row = 0; row < state.length; row += 1) {
+    for (let col = 0; col < state[0].length; col += 1) {
+      state[row][col] = scratch[row][col];
+    }
+  }
+  return state;
 };

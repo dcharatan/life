@@ -1,10 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-console */
 /* eslint-disable no-bitwise */
-// const A = 1;
-// const B = 1;
-// A += 0.07;
-// B += 0.03;
 
 // Adapted from https://www.a1k0n.net/2011/07/20/donut-math.html.
 export const getDonutFrame = (A, B) => {
@@ -26,7 +22,7 @@ export const getDonutFrame = (A, B) => {
       const D = 1 / (sp * h * sA + st * cA + 5); // this is 1/z
       const t = sp * h * cA - st * sA; // this is a clever factoring of some of the terms in x' and y'
 
-      const x = 0 | (40 + 30 * D * (cp * h * cB - t * sB));
+      const x = 0 | (55 + 30 * D * (cp * h * cB - t * sB));
       const y = 0 | (12 + 15 * D * (cp * h * sB + t * cB));
       const o = x + 80 * y;
       const N = 0 | (8 * ((st * sA - sp * ct * cA) * cB - sp * ct * sA - st * cA - cp * ct * sB));
