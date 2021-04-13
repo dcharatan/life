@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { copyState, updateLifeState } from '../life/life';
-import { getDonutFrame } from '../donut';
+import { copyState, updateLifeState } from './life/life';
+import { getDonutFrame } from './donut';
 
 const LifeGame = ({
   initialState, updateInterval, numRows, numCols,
@@ -55,7 +55,7 @@ LifeGame.propTypes = {
 };
 
 LifeGame.defaultProps = {
-  updateInterval: 1000,
+  updateInterval: 1000 / 20,
   numRows: 5,
   numCols: 5,
 };
