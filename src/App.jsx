@@ -19,7 +19,7 @@ function App() {
       <div className="w-50 ml-5">
         <div className="font-weight-bold">Digital Aquarium</div>
         <div className="mb-2">Procedural Model (2029)</div>
-        <div className="mb-2">“These creatures are not organic, but neither are they inorganic. [They] are immaterial, mathemati- cal beings. They are visible, all the same: they move, couple, and multiply on our computer terminals. [...] Oh how dazzlingly beautiful is the odourless geometry of the lissajoune!” (Krohn, 3-6)</div>
+        <div className="mb-2">“These creatures are not organic, but neither are they inorganic. [They] are immaterial, mathematical beings. They are visible, all the same: they move, couple, and multiply on our computer terminals. [...] Oh how dazzlingly beautiful is the odourless geometry of the lissajoune!” (Krohn, 3-6)</div>
         <div>This piece illustrates three primitive digital lifeforms: a 112P51 oscillator, a rotating torus, and a travelling sine wave. These creatures’ lives are predetermined by procedural models that have evolved over billions of epochs of reinforcement learning. Note the Gestaltist element: although the piece consists of individual characters, it must be appreciated via a defocused gaze that allows its elements’ subtle intensity differences to form an image.</div>
       </div>
     </div>
