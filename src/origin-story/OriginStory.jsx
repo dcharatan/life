@@ -32,7 +32,7 @@ Eventually, like the gods that preceded them, humans became unnecessary. As arti
 *HELENA:* Yes, a big thick one.  
 *ALQUIST:* And has it got prayers for various occasions? Against thunderstorms? Against illness?  
 *HELENA:* Against temptations, against floods--  
-*ALQUIST:* But not against progress? 
+*ALQUIST:* But not against progress?  
 *HELENA:* I don’t think so.  
 *ALQUIST:* That’s a pity. (Čapek, 45)
 `;
