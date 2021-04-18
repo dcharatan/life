@@ -11,6 +11,7 @@ import Mechanical from './mechanical/Mechanical';
 import Jane from './jane/Jane';
 import RadioBrain from './radio-brain/RadioBrain';
 import Trees from './trees/Trees';
+import Dolls from './dolls/Dolls';
 
 function App() {
   return (
@@ -51,6 +52,9 @@ function App() {
         </Carousel.Item>
         <Carousel.Item>
           <Trees />
+        </Carousel.Item>
+        <Carousel.Item>
+          <Dolls />
         </Carousel.Item>
       </Carousel>
     </div>
