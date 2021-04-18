@@ -4,7 +4,12 @@ import ReactMarkdown from 'react-markdown';
 
 const title = '## Bibliography';
 
-const main = `Donna Haraway, “A Cyborg Manifesto: Science, Technology, and Socialist-Feminism in the Late 20th Century” (1985), pp. 117-147.
+const main = `
+c4dcenter. (2020). 4K Clay 03-C4D Material [Texture]. https://c4dcenter.com/material-library/4k-clay-03-c4d-material/
+
+c4dcenter. (2020). 4K Plywood 02-Clean-C4D Material [Texture]. https://c4dcenter.com/material-library/4k-plywood-02-clean-c4d-material/
+
+Donna Haraway, “A Cyborg Manifesto: Science, Technology, and Socialist-Feminism in the Late 20th Century” (1985), pp. 117-147.
 
 _Fm-2030: [Are You Transhuman?](https://www.youtube.com/watch?v=eaS9QBdVHMs&t=4s)_, 2013. 
 
