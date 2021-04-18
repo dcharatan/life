@@ -8,6 +8,7 @@ import Attribution from './Attribution';
 import OriginStory from './origin-story/OriginStory';
 import HerrC from './herr-c/HerrC';
 import Mechanical from './mechanical/Mechanical';
+import Jane from './jane/Jane';
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
         </Carousel.Item>
         <Carousel.Item>
           <HerrC />
+        </Carousel.Item>
+        <Carousel.Item>
+          <Jane />
         </Carousel.Item>
       </Carousel>
     </div>
