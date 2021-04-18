@@ -13,6 +13,7 @@ import RadioBrain from './radio-brain/RadioBrain';
 import Trees from './trees/Trees';
 import Dolls from './dolls/Dolls';
 import Home from './home/Home';
+import Bibliography from './bibliography/Bibliography';
 
 function App() {
   return (
@@ -60,6 +61,9 @@ function App() {
         </Carousel.Item>
         <Carousel.Item>
           <Dolls />
+        </Carousel.Item>
+        <Carousel.Item>
+          <Bibliography />
         </Carousel.Item>
       </Carousel>
     </div>

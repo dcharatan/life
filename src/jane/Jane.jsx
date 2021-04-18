@@ -5,7 +5,7 @@ import Jane1 from './Jane1.png';
 import Jane2 from './Jane2.png';
 import ArtCard from '../ArtCard';
 
-const title = '### Jane Eykie';
+const title = '### Jane Eykie (b. 1960)';
 const secondTitle = 'IS EMBODIMENT NECESSARY TO UNDERSTAND ART?';
 
 const medium = 'Digital piece, Photoshop, Google';

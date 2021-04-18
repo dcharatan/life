@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import ArtCard from '../ArtCard';
 import YoutubeEmbed from '../YouTubeEmbed';
 
-const title = '### Radiobrain (b. 1960)';
+const title = '### Radiobrain';
 const secondTitle = 'Creep (1995)';
 
 const medium = 'Video: Guitar, Digital Pedal, Amplifier, Camera';

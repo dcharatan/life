@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
+import HomeImage from './home.jpeg';
 
 const title = '## Transhumanism and the Intersection of Humanity, Technology, and Creativity ';
 
@@ -18,16 +19,14 @@ Some questions these conceptual artworks explore include:
 
 -What can be considered creativity? Can AI be creative, and if art can’t be distinguished as from an AI or from a human, what does that say about creativity or humanity?`;
 
-const Trees = () => (
+const Home = () => (
   <div className="p-5 scroll-y w-100 h-100">
     <Container>
       <Row>
         <Col>
+          <img src={HomeImage} alt="Home" height="400em" className="mb-3" />
           <ReactMarkdown>{title}</ReactMarkdown>
-          <br />
           <ReactMarkdown>{secondTitle}</ReactMarkdown>
-          <br />
-          <br />
           <ReactMarkdown>{main}</ReactMarkdown>
         </Col>
       </Row>
@@ -35,4 +34,4 @@ const Trees = () => (
   </div>
 );
 
-export default Trees;
+export default Home;
