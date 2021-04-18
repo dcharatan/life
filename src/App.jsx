@@ -12,11 +12,16 @@ import Jane from './jane/Jane';
 import RadioBrain from './radio-brain/RadioBrain';
 import Trees from './trees/Trees';
 import Dolls from './dolls/Dolls';
+import Home from './home/Home';
 
 function App() {
   return (
     <div className="w-100 h-100">
       <Carousel className="w-100 h-100" controls={false} interval={9999999999999}>
+
+        <Carousel.Item>
+          <Home />
+        </Carousel.Item>
         <Carousel.Item className="w-100 h-100">
           <div className="d-flex align-items-center justify-content-center w-100 h-100">
             <div style={{ position: 'absolute', bottom: '1em', left: '1em' }}><Attribution /></div>
