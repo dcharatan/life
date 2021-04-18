@@ -24,7 +24,9 @@ const Home = () => (
     <Container>
       <Row>
         <Col>
-          <img src={HomeImage} alt="Home" height="400em" className="mb-3" />
+          <div className="w-100 d-flex justify-content-center">
+            <img src={HomeImage} alt="Home" height="400em" className="mb-3" />
+          </div>
           <ReactMarkdown>{title}</ReactMarkdown>
           <ReactMarkdown>{secondTitle}</ReactMarkdown>
           <ReactMarkdown>{main}</ReactMarkdown>
