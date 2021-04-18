@@ -9,6 +9,7 @@ import OriginStory from './origin-story/OriginStory';
 import HerrC from './herr-c/HerrC';
 import Mechanical from './mechanical/Mechanical';
 import Jane from './jane/Jane';
+import RadioBrain from './radio-brain/RadioBrain';
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
         </Carousel.Item>
         <Carousel.Item>
           <Jane />
+        </Carousel.Item>
+        <Carousel.Item>
+          <RadioBrain />
         </Carousel.Item>
       </Carousel>
     </div>

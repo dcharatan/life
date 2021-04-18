@@ -8,7 +8,7 @@ const ArtCard = ({
 }) => (
   <div {...props}>
     <div className="font-weight-bold">{title}</div>
-    <div>{`${medium} (${year})`}</div>
+    <div>{year ? `${medium} (${year})` : `${medium}`}</div>
   </div>
 );
 
