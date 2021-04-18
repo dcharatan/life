@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col, Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import FiguresClay from './figures_clay.png';
 import FiguresWood from './figures_wood.png';
@@ -45,15 +46,19 @@ Eventually, like the gods that preceded them, humans became unnecessary. As arti
 
 const OriginStory = () => (
   <div className="p-5 scroll-y w-100 h-100">
-    <div className="w-50" style={{ marginLeft: '25%' }}>
-      <ReactMarkdown>{titles}</ReactMarkdown>
-      <img src={FiguresClay} alt="Clay Figures" height="500em" className="mb-3" />
-      <ReactMarkdown>{part1}</ReactMarkdown>
-      <img src={FiguresWood} alt="Wooden Figures" height="500em" className="mb-3" />
-      <ReactMarkdown>{part2}</ReactMarkdown>
-      <img src={FiguresMetal} alt="Metal Figures" height="500em" className="mb-3" />
-      <ReactMarkdown>{part3}</ReactMarkdown>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <ReactMarkdown>{titles}</ReactMarkdown>
+          <img src={FiguresClay} alt="Clay Figures" height="500em" className="mb-3" />
+          <ReactMarkdown>{part1}</ReactMarkdown>
+          <img src={FiguresWood} alt="Wooden Figures" height="500em" className="mb-3" />
+          <ReactMarkdown>{part2}</ReactMarkdown>
+          <img src={FiguresMetal} alt="Metal Figures" height="500em" className="mb-3" />
+          <ReactMarkdown>{part3}</ReactMarkdown>
+        </Col>
+      </Row>
+    </Container>
   </div>
 );
 
