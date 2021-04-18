@@ -16,7 +16,7 @@ Hubert L. Dreyfus, “The Role of the Body in Intelligent Behavior,” in _What 
 
 Karl Marx. _Fundamentals of a Critique of Political Economy_, Notebook VI (1857-8), pp. 693-702.
 
-Karel Čapek. “Rossum’s Universal Robots” (1920), pp. 9-11. 
+Karel Čapek. “Rossum’s Universal Robots” (1920), pp. 9-45. 
 
 Leena Krohn. “Gorgonoids” (1992), pp. 3-6. 
 
