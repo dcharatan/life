@@ -10,6 +10,7 @@ import HerrC from './herr-c/HerrC';
 import Mechanical from './mechanical/Mechanical';
 import Jane from './jane/Jane';
 import RadioBrain from './radio-brain/RadioBrain';
+import Trees from './trees/Trees';
 
 function App() {
   return (
@@ -47,6 +48,9 @@ function App() {
         </Carousel.Item>
         <Carousel.Item>
           <RadioBrain />
+        </Carousel.Item>
+        <Carousel.Item>
+          <Trees />
         </Carousel.Item>
       </Carousel>
     </div>
