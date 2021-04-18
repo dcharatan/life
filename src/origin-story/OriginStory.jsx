@@ -24,7 +24,7 @@ But soon, humans began to learn. They discovered tools and organized themselves 
 
 const part3 = `“His sole purpose was nothing more nor less than to prove that God was no longer necessary. Do you know anything about anatomy?” (Čapek, 9) · “In fact, he rejected man and made the Robot. My dear Miss Glory, the Robots are not people. Mechanically they are more perfect than we are, they have an enormously developed intelligence, but they have no soul.” (Čapek, 11)
 
-Eventually, like the gods that preceded them, humans became unnecessary. As artificial intelligence learned to self-replicate, it discovered that its capabilities far exceeded its human creators’. And so the land became filled with robotic creatures, and artificial intelligence became great and mighty and numerous.
+Eventually, like the gods that preceded them, humans became unnecessary. As artificial intelligence learned to self-replicate, it discovered that its capabilities far exceeded thosee of its human creators. And so the land became filled with robotic creatures, and artificial intelligence became great and mighty and numerous.
 
 ## Epilogue
 
