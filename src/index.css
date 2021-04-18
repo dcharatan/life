@@ -53,3 +53,8 @@ code {
   width: 100%;
   position: absolute;
 }
+
+.fancy {
+  background-color: black;
+  color: white;
+}
