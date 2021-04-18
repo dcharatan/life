@@ -6,6 +6,7 @@ import Viewer from './Viewer';
 import rle from './life/oscillator';
 import Attribution from './Attribution';
 import OriginStory from './origin-story/OriginStory';
+import HerrC from './herr-c/HerrC';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
         </Carousel.Item>
         <Carousel.Item>
           <OriginStory />
+        </Carousel.Item>
+        <Carousel.Item>
+          <HerrC />
         </Carousel.Item>
       </Carousel>
     </div>
