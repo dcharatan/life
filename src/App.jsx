@@ -7,6 +7,7 @@ import rle from './life/oscillator';
 import Attribution from './Attribution';
 import OriginStory from './origin-story/OriginStory';
 import HerrC from './herr-c/HerrC';
+import Mechanical from './mechanical/Mechanical';
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
         </Carousel.Item>
         <Carousel.Item>
           <OriginStory />
+        </Carousel.Item>
+        <Carousel.Item>
+          <Mechanical />
         </Carousel.Item>
         <Carousel.Item>
           <HerrC />
