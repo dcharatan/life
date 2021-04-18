@@ -10,11 +10,13 @@ Some questions these conceptual artworks explore include:
 
 - What is the importance of the body in creativity and intelligence, and what differences or similarities exist between humans, robots, and cyborgs?
 
-- If humans can live digitally or be revived in virtual reality, what does this mean for our concepts about death? Have we created an afterlife?
+- If humans can live digitally or be revived in virtual reality, how does this influence the concept of death? Have we created an afterlife?
 
 - How can AI and cybernetic parts create new opportunities for creativity? 
 
-- What can be considered creativity? Can AI be creative, and if art can’t be distinguished as from an AI or from a human, what does that say about creativity or humanity?`;
+- What can be considered creativity? Can AI be creative, and if human and AI-generated art become indistinguishable, what does that say about creativity or humanity?
+
+To explore this virtual exhibit, use the buttons at the bottom of the page.`;
 
 const Home = () => (
   <div className="p-5 scroll-y w-100 h-100">
