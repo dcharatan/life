@@ -14,6 +14,8 @@ Holly Case. “Creation Narratives-Selection” (2021), pp. 1-4.
 
 Hubert L. Dreyfus, “The Role of the Body in Intelligent Behavior,” in _What Computers Can’t Do: The Limits of Artificial Intelligence (1972)_, pp. 235-255.
 
+Irvine, L. (2018). Cyborg [Digital Composite]. https://www.theguardian.com/books/2018/may/30/top-10-books-to-help-you-survive-the-digital-age
+
 Karl Marx. _Fundamentals of a Critique of Political Economy_, Notebook VI (1857-8), pp. 693-702.
 
 Karel Čapek. “Rossum’s Universal Robots” (1920), pp. 9-45. 
